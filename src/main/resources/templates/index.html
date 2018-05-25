@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Automatic Photography Formatter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../static/css/common.css" th:href="@{/css/common.css}" />
+</head>
+<body>
+	<form action="formatter.html" th:attr="action=@{/formatter}">
+		<div class="web">
+			<div class="container">
+				<div class="div_header div_index_header shadow border_round text_shadow">
+					<span th:text="#{welcome.message}">Message</span>
+				</div>
+				<div class="div_button_giant">
+					<input type="submit" value="Button" th:attr="value=#{welcome.start.button}" class="button_giant shadow"></input>
+				</div>
+			</div>
+			<div class="div_footer">
+				&#169;&nbsp;Powered by TML
+			</div>
+		</div>
+	</form>
+</body>
+</html>

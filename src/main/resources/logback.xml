@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Definition of appender STDOUT -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+	<!-- Definition of appender FILE -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/apf.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>./log/apf.log-%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>5</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{0} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<!-- Custom log levels -->
+	<logger name="es.tml.apf" level="DEBUG" />
+
+	<!-- Root level -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

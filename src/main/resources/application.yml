@@ -1,0 +1,10 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: Automatic Photography Formatter
+  messages:
+    basename: messages/messages
+    cache-seconds: -1
+    encoding: UTF-8
