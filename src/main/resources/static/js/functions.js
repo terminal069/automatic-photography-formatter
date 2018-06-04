@@ -15,7 +15,7 @@ function checkConversionType()
 {
 	if ($("#conversionTypeId").val() == "EXIF")
 	{
-		$("#formatoEntradaId").val("yyyy:MM:dd HH:mm:ss");
+		$("#inputFormatId").val("yyyy:MM:dd HH:mm:ss");
 	}
 }
 
@@ -37,7 +37,7 @@ function checkResults()
 }
 
 /**
- * Checks if there are errors to show them
+ * Checks if there are errors to show
  */
 function checkErrors()
 {
@@ -54,27 +54,27 @@ function checkErrors()
 }
 
 /**
- * Shows pattern format help popup
+ * Shows format pattern help popup
  *  
- * @param idFormato Id of the pattern format
+ * @param formatId Id of the format pattern
  */
-function mostrarAyudaFormato(idFormato)
+function showFormatterHelp(formatId)
 {
-	$("#ayudaFormatoId").val(idFormato);
-	$("#contenedorAyudaFormatoId").fadeIn();
+	$("#formatterHelpId").val(formatId);
+	$("#formatterHelpContainerId").fadeIn();
 }
 
 /**
  * Hides pattern format help popup
  */
-function ocultarAyudaFormato()
+function hideFormatterHelp()
 {
-	$("#contenedorAyudaFormatoId").fadeOut();
-	$("#ayudaFormatoId").val("");
-	$("#selectCargarPatronId").val("0");
-	$("#patronSeleccionadoId").val("");
-	ocultarCuerpoTabla('cabeceraTablaPatronesFechaId', 'cuerpoTablaPatronesFechaId', 'textoCabeceraTablaPatronesFechaId', 'Patrones de fecha');
-	ocultarCuerpoTabla('cabeceraTablaEjemplosPatronesFechaId', 'cuerpoTablaEjemplosPatronesFechaId', 'textoCabeceraTablaEjemplosPatronesFechaId', 'Ejemplos de patrones de fecha');
+	$("#formatterHelpContainerId").fadeOut();
+	$("#formatterHelpId").val("");
+	$("#patternLoaderSelectId").val("0");
+	$("#selectedPatternId").val("");
+	ocultarCuerpoTabla('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableHeaderTextId', 'Patrones de fecha');
+	ocultarCuerpoTabla('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableHeaderTextId', 'Ejemplos de patrones de fecha');
 }
 
 /**
@@ -85,7 +85,7 @@ function ocultarAyudaFormato()
  * @param textoId Text id
  * @param texto Header text
  */
-function mostrarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto)
+function showTableBody(cabeceraId, cuerpoId, textoId, texto)
 {
 	$("#" + cuerpoId).fadeIn();
 	$("#" + textoId).html("&#9650; " + texto + " &#9650;");
@@ -107,7 +107,7 @@ function ocultarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto)
 	$("#" + cuerpoId).fadeOut();
 	$("#" + textoId).html("&#9660; " + texto + " &#9660;");
 	document.getElementById(cabeceraId).onclick = function() {
-		mostrarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto);
+		showTableBody(cabeceraId, cuerpoId, textoId, texto);
 	};
 }
 
@@ -116,7 +116,7 @@ function ocultarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto)
  *  
  * @param tipoPatron Pattern type
  */
-function cargarPatronPopup(tipoPatron)
+function loadPatternPopup(tipoPatron)
 {
 	var patron;
 	
@@ -149,14 +149,14 @@ function cargarPatronPopup(tipoPatron)
 		patron = "";
 	}
 	
-	$("#patronSeleccionadoId").val(patron);
+	$("#selectedPatternId").val(patron);
 }
 
 /**
  * Loads the pattern into the selected pattern format 
  */
-function cargarPatron()
+function loadPattern()
 {
-	$("#" + $("#ayudaFormatoId").val()).val($("#patronSeleccionadoId").val());
-	ocultarAyudaFormato();
+	$("#" + $("#formatterHelpId").val()).val($("#selectedPatternId").val());
+	hideFormatterHelp();
 }

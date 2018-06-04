@@ -27,8 +27,6 @@ public class FormatterController extends CommonController {
 		
 		log.info("Mapping '/init'");
 		
-		initFormatterTemplate(model);
-		
 		return "formatter";
 	}
 	
@@ -36,8 +34,6 @@ public class FormatterController extends CommonController {
 	public String format(Model model) {
 		
 		log.info("Mapping '/format'");
-		
-		initFormatterTemplate(model);
 		
 		List<String> results = Arrays.asList(
 				"Total: 12",
@@ -56,9 +52,4 @@ public class FormatterController extends CommonController {
 		return "formatter";
 	}
 	
-	private void initFormatterTemplate(Model model) {
-
-		model.addAttribute("results", null);
-		model.addAttribute("errors", null);
-	}
 }
