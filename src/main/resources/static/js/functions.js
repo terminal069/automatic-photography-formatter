@@ -73,74 +73,74 @@ function hideFormatterHelp()
 	$("#formatterHelpId").val("");
 	$("#patternLoaderSelectId").val("0");
 	$("#selectedPatternId").val("");
-	ocultarCuerpoTabla('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableHeaderTextId', 'Patrones de fecha');
-	ocultarCuerpoTabla('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableHeaderTextId', 'Ejemplos de patrones de fecha');
+	hideTableBody('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableHeaderTextId', 'Patrones de fecha');
+	hideTableBody('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableHeaderTextId', 'Ejemplos de patrones de fecha');
 }
 
 /**
  * Shows the body of the table and changes properties to hide the body when header is clicked
  * 
- * @param cabeceraId Header id
- * @param cuerpoId Body id
- * @param textoId Text id
- * @param texto Header text
+ * @param headerId Header id
+ * @param bodyId Body id
+ * @param textId Text id
+ * @param headerText Header text
  */
-function showTableBody(cabeceraId, cuerpoId, textoId, texto)
+function showTableBody(headerId, bodyId, textId, headerText)
 {
-	$("#" + cuerpoId).fadeIn();
-	$("#" + textoId).html("&#9650; " + texto + " &#9650;");
-	document.getElementById(cabeceraId).onclick = function() {
-		ocultarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto);
+	$("#" + bodyId).fadeIn();
+	$("#" + textId).html("&#9650; " + headerText + " &#9650;");
+	document.getElementById(headerId).onclick = function() {
+		hideTableBody(headerId, bodyId, textId, headerText);
 	};
 }
 
 /**
  * Hides the body of the table and changes properties to show the body when header is clicked
  * 
- * @param cabeceraId Header id
- * @param cuerpoId Body id
- * @param textoId Text id
- * @param texto Header text
+ * @param headerId Header id
+ * @param bodyId Body id
+ * @param textId Text id
+ * @param headerText Header text
  */
-function ocultarCuerpoTabla(cabeceraId, cuerpoId, textoId, texto)
+function hideTableBody(headerId, bodyId, textId, headerText)
 {
-	$("#" + cuerpoId).fadeOut();
-	$("#" + textoId).html("&#9660; " + texto + " &#9660;");
-	document.getElementById(cabeceraId).onclick = function() {
-		showTableBody(cabeceraId, cuerpoId, textoId, texto);
+	$("#" + bodyId).fadeOut();
+	$("#" + textId).html("&#9660; " + headerText + " &#9660;");
+	document.getElementById(headerId).onclick = function() {
+		showTableBody(headerId, bodyId, textId, headerText);
 	};
 }
 
 /**
  * Loads pattern selected
  *  
- * @param tipoPatron Pattern type
+ * @param patternType Pattern type
  */
-function loadPatternPopup(tipoPatron)
+function loadPatternPopup(patternType)
 {
 	var patron;
 	
-	if (tipoPatron == "EXIF")
+	if (patternType == "EXIF")
 	{
 		patron = "yyyy:MM:dd HH:mm:ss";
 	}
-	else if (tipoPatron == "AND_EST")
+	else if (patternType == "AND_EST")
 	{
 		patron = "'IMG'_yyyyMMdd_HHmmss'.jpg'";
 	}
-	else if (tipoPatron == "AND_MILI")
+	else if (patternType == "AND_MILI")
 	{
 		patron = "'IMG'_yyyyMMdd_HHmmssSSS'.jpg'";
 	}
-	else if (tipoPatron == "IPHONE_ESP")
+	else if (patternType == "IPHONE_ESP")
 	{
 		patron = "'Foto' dd-M-yy HH mm ss'.jpg'";
 	}
-	else if (tipoPatron == "IPHONE_PUN")
+	else if (patternType == "IPHONE_PUN")
 	{
 		patron = "yyyy-MM-dd HH.mm.ss'.jpg'";
 	}
-	else if (tipoPatron == "SALIDA_EST")
+	else if (patternType == "SALIDA_EST")
 	{
 		patron = "yyyyMMdd_HHmmss'.jpg'";
 	}
