@@ -73,8 +73,8 @@ function hideFormatterHelp()
 	$("#formatterHelpId").val("");
 	$("#patternLoaderSelectId").val("0");
 	$("#selectedPatternId").val("");
-	hideTableBody('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableHeaderTextId', 'Patrones de fecha');
-	hideTableBody('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableHeaderTextId', 'Ejemplos de patrones de fecha');
+	hideTableBody('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableText');
+	hideTableBody('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableText');
 }
 
 /**
@@ -83,14 +83,14 @@ function hideFormatterHelp()
  * @param headerId Header id
  * @param bodyId Body id
  * @param textId Text id
- * @param headerText Header text
  */
-function showTableBody(headerId, bodyId, textId, headerText)
+function showTableBody(headerId, bodyId, textId)
 {
 	$("#" + bodyId).fadeIn();
-	$("#" + textId).html("&#9650; " + headerText + " &#9650;");
+	$("#" + textId + "AId").html("&#9650;");
+	$("#" + textId + "BId").html("&#9650;");
 	document.getElementById(headerId).onclick = function() {
-		hideTableBody(headerId, bodyId, textId, headerText);
+		hideTableBody(headerId, bodyId, textId);
 	};
 }
 
@@ -100,14 +100,14 @@ function showTableBody(headerId, bodyId, textId, headerText)
  * @param headerId Header id
  * @param bodyId Body id
  * @param textId Text id
- * @param headerText Header text
  */
-function hideTableBody(headerId, bodyId, textId, headerText)
+function hideTableBody(headerId, bodyId, textId)
 {
 	$("#" + bodyId).fadeOut();
-	$("#" + textId).html("&#9660; " + headerText + " &#9660;");
+	$("#" + textId + "AId").html("&#9660;");
+	$("#" + textId + "BId").html("&#9660;");
 	document.getElementById(headerId).onclick = function() {
-		showTableBody(headerId, bodyId, textId, headerText);
+		showTableBody(headerId, bodyId, textId);
 	};
 }
 
@@ -118,38 +118,38 @@ function hideTableBody(headerId, bodyId, textId, headerText)
  */
 function loadPatternPopup(patternType)
 {
-	var patron;
+	var pattern;
 	
 	if (patternType == "EXIF")
 	{
-		patron = "yyyy:MM:dd HH:mm:ss";
+		pattern = "yyyy:MM:dd HH:mm:ss";
 	}
 	else if (patternType == "AND_EST")
 	{
-		patron = "'IMG'_yyyyMMdd_HHmmss'.jpg'";
+		pattern = "'IMG'_yyyyMMdd_HHmmss'.jpg'";
 	}
 	else if (patternType == "AND_MILI")
 	{
-		patron = "'IMG'_yyyyMMdd_HHmmssSSS'.jpg'";
+		pattern = "'IMG'_yyyyMMdd_HHmmssSSS'.jpg'";
 	}
 	else if (patternType == "IPHONE_ESP")
 	{
-		patron = "'Foto' dd-M-yy HH mm ss'.jpg'";
+		pattern = "'Foto' dd-M-yy HH mm ss'.jpg'";
 	}
 	else if (patternType == "IPHONE_PUN")
 	{
-		patron = "yyyy-MM-dd HH.mm.ss'.jpg'";
+		pattern = "yyyy-MM-dd HH.mm.ss'.jpg'";
 	}
 	else if (patternType == "SALIDA_EST")
 	{
-		patron = "yyyyMMdd_HHmmss'.jpg'";
+		pattern = "yyyyMMdd_HHmmss'.jpg'";
 	}
 	else
 	{
-		patron = "";
+		pattern = "";
 	}
 	
-	$("#selectedPatternId").val(patron);
+	$("#selectedPatternId").val(pattern);
 }
 
 /**

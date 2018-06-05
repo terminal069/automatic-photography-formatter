@@ -11,7 +11,6 @@ public abstract class CommonController {
 	@ModelAttribute("footerYear")
 	protected String getFooterYear() {
 		
-//		return "\u00A9 " + Calendar.getInstance().get(Calendar.YEAR) + " - ";
 		return String.format(FOOTER, Calendar.getInstance().get(Calendar.YEAR));
 	}
 }

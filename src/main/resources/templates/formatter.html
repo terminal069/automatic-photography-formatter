@@ -104,9 +104,13 @@
 		<div class="popup div_popup_help_format shadow border_round">
 			<div class="div_popup shadow">
 				<table class="table_deployable">
-					<thead id="datePatternTableHeaderId" onclick="showTableBody('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableHeaderTextId', 'Patrones de fecha');">
+					<thead id="datePatternTableHeaderId" onclick="showTableBody('datePatternTableHeaderId', 'datePatternTableBodyId', 'datePatternTableText');">
 						<tr>
-							<th colspan="4" id="datePatternTableHeaderTextId">&#9660; Patrones de fecha &#9660;</th>
+							<th colspan="4">
+								<span id="datePatternTableTextAId">&#9660;</span>
+								<span th:text="#{formatter.table.datePattern.header}">Date patterns</span>
+								<span id="datePatternTableTextBId">&#9660;</span>
+							</th>
 						</tr>
 					</thead>
 					<tbody id="datePatternTableBodyId" style="display: none">
@@ -253,9 +257,13 @@
 			</div>
 			<div class="div_popup shadow">
 				<table class="table_deployable">
-					<thead id="datePatternExamplesTableHeaderId" onclick="showTableBody('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableHeaderTextId', 'Ejemplos de patrones de fecha');">
+					<thead id="datePatternExamplesTableHeaderId" onclick="showTableBody('datePatternExamplesTableHeaderId', 'datePatternExamplesTableBodyId', 'datePatternExamplesTableText');">
 						<tr>
-							<th colspan="2" id="datePatternExamplesTableHeaderTextId">&#9660; Ejemplos de patrones de fecha &#9660;</th>
+							<th colspan="2">
+								<span id="datePatternExamplesTableTextAId">&#9660;</span>
+								<span th:text="#{formatter.table.datePatternExamples.header}">Date patterns examples</span>
+								<span id="datePatternExamplesTableTextBId">&#9660;</span>
+							</th>
 						</tr>
 					</thead>
 					<tbody id="datePatternExamplesTableBodyId" style="display: none">
