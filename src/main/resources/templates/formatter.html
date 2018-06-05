@@ -115,141 +115,141 @@
 					</thead>
 					<tbody id="datePatternTableBodyId" style="display: none">
 						<tr>
-							<th>Patrón</th>
-							<th>Componente de fecha u hora</th>
-							<th>Presentación</th>
-							<th>Ejemplo</th>
+							<th th:text="#{formatter.table.datePattern.firstRow.pattern}">Pattern</th>
+							<th th:text="#{formatter.table.datePattern.firstRow.component}">Date or time component</th>
+							<th th:text="#{formatter.table.datePattern.firstRow.presentation}">Presentation</th>
+							<th th:text="#{formatter.table.datePattern.firstRow.examples}">Examples</th>
 						</tr>
 						<tr class="table_row_odd">
 							<td>G</td>
-							<td>Era designator</td>
-							<td>Text</td>
-							<td>AD</td>
+							<td th:text="#{formatter.table.datePattern.body.eraDesignator}">Era designator</td>
+							<td th:text="#{formatter.table.datePattern.body.text}">Text</td>
+							<td th:text="#{formatter.table.datePattern.body.eraDesignator.example}">AD</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>y</td>
-							<td>Year</td>
-							<td>Year</td>
+							<td th:text="#{formatter.table.datePattern.body.year}">Year</td>
+							<td th:text="#{formatter.table.datePattern.body.year}">Year</td>
 							<td>1996; 96</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>Y</td>
-							<td>Week year</td>
-							<td>Year</td>
+							<td th:text="#{formatter.table.datePattern.body.weekYear}">Week year</td>
+							<td th:text="#{formatter.table.datePattern.body.year}">Year</td>
 							<td>2009; 09</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>M</td>
-							<td>Month in year</td>
-							<td>Month</td>
-							<td>July; Jul; 07</td>
+							<td th:text="#{formatter.table.datePattern.body.monthYear}">Month in year</td>
+							<td th:text="#{formatter.table.datePattern.body.month}">Month</td>
+							<td th:text="#{formatter.table.datePattern.body.month.example}">July; Jul; 07</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>w</td>
-							<td>Week in year</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.weekInYear}">Week in year</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>27</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>W</td>
-							<td>Week in month</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.weekInMonth}">Week in month</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>2</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>D</td>
-							<td>Day in year</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.dayInYear}">Day in year</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>189</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>d</td>
-							<td>Day in month</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.dayInMonth}">Day in month</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>10</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>F</td>
-							<td>Day of week in month</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.dayOfWeekInMonth}">Day of week in month</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>2</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>E</td>
-							<td>Day name in week</td>
-							<td>Text</td>
-							<td>Tuesday; Tue</td>
+							<td th:text="#{formatter.table.datePattern.body.dayNameInWeek}">Day name in week</td>
+							<td th:text="#{formatter.table.datePattern.body.text}">Text</td>
+							<td th:text="#{formatter.table.datePattern.body.dayNameInWeek.example}">Tuesday; Tue</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>u</td>
-							<td>Day number of week (1 = Monday, ..., 7 = Sunday)</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.dayNumberOfWeek}">Day number of week (1 = Monday, ..., 7 = Sunday)</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>1</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>a</td>
-							<td>Am/pm marker</td>
-							<td>Text</td>
+							<td th:text="#{formatter.table.datePattern.body.ampm}">Am/pm marker</td>
+							<td th:text="#{formatter.table.datePattern.body.text}">Text</td>
 							<td>PM</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>H</td>
-							<td>Hour in day (0-23)</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.hourInDay0_23}">Hour in day (0-23)</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>0</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>k</td>
-							<td>Hour in day (1-24)</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.hourInDay1_24}">Hour in day (1-24)</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>24</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>K</td>
-							<td>Hour in am/pm (0-11)</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.hourInAmPm0_11}">Hour in am/pm (0-11)</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>0</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>h</td>
-							<td>Hour in am/pm (1-12)</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.hourInAmPm1_12}">Hour in am/pm (1-12)</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>12</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>m</td>
-							<td>Minute in hour</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.minuteInHour}">Minute in hour</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>30</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>s</td>
-							<td>Second in minute</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.secondInMinute}">Second in minute</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>55</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>S</td>
-							<td>Millisecond</td>
-							<td>Number</td>
+							<td th:text="#{formatter.table.datePattern.body.millisecond}">Millisecond</td>
+							<td th:text="#{formatter.table.datePattern.body.number}">Number</td>
 							<td>978</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>z</td>
-							<td>Time zone</td>
-							<td>General time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.timeZone}">Time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.generalTimeZone}">General time zone</td>
 							<td>Pacific Standard Time; PST; GMT-08:00</td>
 						</tr>
 						<tr class="table_row_odd">
 							<td>Z</td>
-							<td>Time zone</td>
-							<td>RFC 822 time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.timeZone}">Time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.timeZone.rfc822}">RFC 822 time zone</td>
 							<td>-0800</td>
 						</tr>
 						<tr class="table_row_even">
 							<td>X</td>
-							<td>Time zone</td>
-							<td>ISO 8601 time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.timeZone}">Time zone</td>
+							<td th:text="#{formatter.table.datePattern.body.timeZone.iso8601}">ISO 8601 time zone</td>
 							<td>-08; -0800; -08:00</td>
 						</tr>
 					</tbody>
@@ -268,52 +268,52 @@
 					</thead>
 					<tbody id="datePatternExamplesTableBodyId" style="display: none">
 						<tr>
-							<th>Patrón de fecha y hora</th>
-							<th>Resultado</th>
+							<th th:text="#{formatter.table.datePatternExamples.firstRow.pattern}">Date and time pattern</th>
+							<th th:text="#{formatter.table.datePatternExamples.firstRow.result}">Result</th>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"yyyy.MM.dd G 'at' HH:mm:ss z"</td>
-							<td>2001.07.04 AD at 12:08:56 PDT</td>
+							<td th:text="#{formatter.table.datePatternExamples.example01.pattern}">"yyyy.MM.dd G 'at' HH:mm:ss z"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example01.result}">2001.07.04 AD at 12:08:56 PDT</td>
 						</tr>
 						<tr class="table_row_even">
-							<td>"EEE, MMM d, ''yy"</td>
-							<td>Wed, Jul 4, '01</td>
+							<td th:text="#{formatter.table.datePatternExamples.example02.pattern}">"EEE, MMM d, ''yy"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example02.result}">Wed, Jul 4, '01</td>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"h:mm a"</td>
-							<td>12:08 PM</td>
+							<td th:text="#{formatter.table.datePatternExamples.example03.pattern}">"h:mm a"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example03.result}">12:08 PM</td>
 						</tr>
 						<tr class="table_row_even">
-							<td>"hh 'o''clock' a, zzzz"</td>
-							<td>12 o'clock PM, Pacific Daylight Time</td>
+							<td th:text="#{formatter.table.datePatternExamples.example04.pattern}">"hh 'o''clock' a, zzzz"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example04.result}">12 o'clock PM, Pacific Daylight Time</td>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"K:mm a, z"</td>
-							<td>0:08 PM, PDT</td>
+							<td th:text="#{formatter.table.datePatternExamples.example05.pattern}">"K:mm a, z"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example05.result}">0:08 PM, PDT</td>
 						</tr>
 						<tr class="table_row_even">
-							<td>"yyyyy.MMMMM.dd GGG hh:mm aaa"</td>
-							<td>02001.July.04 AD 12:08 PM</td>
+							<td th:text="#{formatter.table.datePatternExamples.example06.pattern}">"yyyyy.MMMMM.dd GGG hh:mm aaa"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example06.result}">02001.July.04 AD 12:08 PM</td>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"EEE, d MMM yyyy HH:mm:ss Z"</td>
-							<td>Wed, 4 Jul 2001 12:08:56 -0700</td>
+							<td th:text="#{formatter.table.datePatternExamples.example07.pattern}">"EEE, d MMM yyyy HH:mm:ss Z"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example07.result}">Wed, 4 Jul 2001 12:08:56 -0700</td>
 						</tr>
 						<tr class="table_row_even">
-							<td>"yyMMddHHmmssZ"</td>
-							<td>010704120856-0700</td>
+							<td th:text="#{formatter.table.datePatternExamples.example08.pattern}">"yyMMddHHmmssZ"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example08.result}">010704120856-0700</td>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"yyyy-MM-dd'T'HH:mm:ss.SSSZ"</td>
-							<td>2001-07-04T12:08:56.235-0700</td>
+							<td th:text="#{formatter.table.datePatternExamples.example09.pattern}">"yyyy-MM-dd'T'HH:mm:ss.SSSZ"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example09.result}">2001-07-04T12:08:56.235-0700</td>
 						</tr>
 						<tr class="table_row_even">
-							<td>"yyyy-MM-dd'T'HH:mm:ss.SSSXXX"</td>
-							<td>2001-07-04T12:08:56.235-07:00</td>
+							<td th:text="#{formatter.table.datePatternExamples.example10.pattern}">"yyyy-MM-dd'T'HH:mm:ss.SSSXXX"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example10.result}">2001-07-04T12:08:56.235-07:00</td>
 						</tr>
 						<tr class="table_row_odd">
-							<td>"YYYY-'W'ww-u"</td>
-							<td>2001-W27-3</td>
+							<td th:text="#{formatter.table.datePatternExamples.example11.pattern}">"YYYY-'W'ww-u"</td>
+							<td th:text="#{formatter.table.datePatternExamples.example11.result}">2001-W27-3</td>
 						</tr>
 					</tbody>
 				</table>
