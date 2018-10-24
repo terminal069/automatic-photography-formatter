@@ -1,4 +1,4 @@
-package es.tml.apf.beans;
+package es.tml.apf.bean;
 
 import lombok.Data;
 

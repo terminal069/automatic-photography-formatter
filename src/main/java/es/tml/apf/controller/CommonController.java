@@ -1,4 +1,4 @@
-package es.tml.apf.controllers;
+package es.tml.apf.controller;
 
 import java.util.Calendar;
 

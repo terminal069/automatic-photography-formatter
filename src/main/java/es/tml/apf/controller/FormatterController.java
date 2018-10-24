@@ -1,4 +1,4 @@
-package es.tml.apf.controllers;
+package es.tml.apf.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.tml.apf.enums.ConversionType;
+import es.tml.apf.type.ConversionType;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

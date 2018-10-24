@@ -1,4 +1,4 @@
-package es.tml.apf.enums;
+package es.tml.apf.type;
 
 import java.util.Arrays;
 import java.util.HashMap;
