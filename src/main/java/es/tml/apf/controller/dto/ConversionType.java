@@ -1,4 +1,4 @@
-package es.tml.apf.type;
+package es.tml.apf.controller.dto;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public enum ConversionType {
 		return this.propertyDescription;
 	}
 	
-	public static Map<String, String> getConversionTypesMapped() {
+	public static Map<String, String> getConversionTypeMapped() {
 		
 		Map<String, String> conversionTypeMap = new HashMap<>();
 		

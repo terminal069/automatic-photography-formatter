@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Automatic Photography Formatter</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../static/css/common.css" th:href="@{/css/common.css}" />
+</head>
+<body>
+	<form action="#" th:action="@{/init}" method="post">
+		<div class="web">
+			<div class="container">
+<!-- 				<div class="div_header div_index_header shadow border_round text_shadow"> -->
+<!-- 					<span th:text="#{welcome.header.message}">Welcome message</span> -->
+<!-- 				</div> -->
+				<div class="div_results div_formatter_errors shadow border_round">
+					<div class="div_text_centered">
+						<span th:text="#{formatter.errors.text}">Errors</span>
+					</div>
+					<div>
+						<ul th:each="error: ${errors}">
+							<li th:text="${error}"></li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<span th:text="${error}">Error message</span>
+				</div>
+				<div class="div_button_giant">
+					<input type="submit" value="Button" th:attr="value=#{welcome.button.start}" class="button_giant shadow"></input>
+				</div>
+			</div>
+			<div class="div_footer">
+				<span th:text="${footerYear} + #{common.footer.message}">Footer message</span>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

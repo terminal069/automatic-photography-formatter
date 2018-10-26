@@ -6,5 +6,5 @@ spring:
     name: Automatic Photography Formatter
   messages:
     basename: messages/messages
-    cache-seconds: -1
+    cache-duration: -1
     encoding: UTF-8

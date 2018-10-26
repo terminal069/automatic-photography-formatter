@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="../static/js/functions.js" th:src="@{/js/functions.js}"></script>
 </head>
 <body>
-	<form action="formatter.html" th:attr="action=@{/format}" method="POST">
+<!-- 	<form action="formatter.html" th:attr="action=@{/format}" th:object="${formatterRequest}" method="POST"> -->
+	<form action="#" th:action="@{/format}" th:object="${formatterRequest}" method="post">
 		<div class="web">
 			<div class="container">
 				<div class="div_header div_formatter_header shadow border_round">
@@ -19,7 +20,7 @@
 						<span th:text="#{formatter.results.text}">Results</span>
 					</div>
 					<div id="resultId">
-						<ul th:each="result: ${results}">
+						<ul th:each="result: *{results}">
 							<li th:text="${result}"></li>
 						</ul>
 					</div>
@@ -29,7 +30,7 @@
 						<span th:text="#{formatter.errors.text}">Errors</span>
 					</div>
 					<div id="errorId">
-						<ul th:each="error: ${errors}">
+						<ul th:each="error: *{errors}">
 							<li th:text="${error}"></li>
 						</ul>
 					</div>
@@ -41,8 +42,8 @@
 								<label th:text="#{formatter.label.conversionType}">Conversion type:</label>
 							</div>
 							<div class="div_field">
-								<select id="conversionTypeId" th:field="*{conversionTypes}" onchange="checkConversionType();">
-									<option th:each="conversionType : ${conversionTypes.entrySet()}"
+								<select id="conversionTypeId" th:field="*{conversionType}" onchange="checkConversionType();">
+									<option th:each="conversionType : ${conversionType.entrySet()}"
 									        th:value="${conversionType.key}"
 									        th:text="#{${'formatter.select.conversionType.' + conversionType.value}}">
 									</option>
@@ -56,7 +57,7 @@
 								<label th:text="#{formatter.label.inputFolder}">Input folder:</label>
 							</div>
 							<div class="div_field">
-								<input type="text"></input>
+								<input type="text" th:field="*{inputFolder}" />
 							</div>
 						</div>
 						<div class="div_column div_column_2_2 shadow border_round">
@@ -65,7 +66,7 @@
 								<img src="../static/img/help.png" th:src="@{/img/help.png}" onclick="showFormatterHelp('inputFormatId');" class="help_formatter"></img>
 							</div>
 							<div class="div_field">
-								<input type="text" id="inputFormatId"></input>
+								<input type="text" th:field="*{inputFormat}" id="inputFormatId" />
 							</div>
 						</div>
 					</div>
@@ -75,7 +76,7 @@
 								<label th:text="#{formatter.label.outputFolder}">Output folder:</label>
 							</div>
 							<div class="div_field">
-								<input type="text"></input>
+								<input type="text" th:field="*{outputFolder}" />
 							</div>
 						</div>
 						<div class="div_column div_column_2_2 shadow border_round">
@@ -84,7 +85,7 @@
 								<img src="../static/img/help.png" th:src="@{/img/help.png}" onclick="showFormatterHelp('outputFormatId');" class="help_formatter"></img>
 							</div>
 							<div class="div_field">
-								<input type="text" id="outputFormatId"></input>
+								<input type="text" th:field="*{outputFormat}" id="outputFormatId" />
 							</div>
 						</div>
 					</div>

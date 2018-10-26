@@ -4,22 +4,35 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.tml.apf.type.ConversionType;
+import es.tml.apf.controller.dto.ConversionType;
+import es.tml.apf.controller.dto.FormatterRequest;
+import es.tml.apf.controller.transformer.FormatterControllerTransformer;
+import es.tml.apf.controller.validator.FormatterControllerValidator;
+import es.tml.apf.service.dto.FormatterServiceIDTO;
+import es.tml.apf.util.ApfTemplates;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 public class FormatterController extends CommonController {
+	
+	@Autowired
+	private FormatterControllerValidator formatterControllerValidator;
+	
+	@Autowired
+	private FormatterControllerTransformer formatterControllerTransformer;
 
-	@ModelAttribute("conversionTypes")
-	public Map<String, String> getConversionTypes() {
+	@ModelAttribute("conversionType")
+	public Map<String, String> getConversionType() {
 		
-		return ConversionType.getConversionTypesMapped();
+		return ConversionType.getConversionTypeMapped();
 	}
 	
 	@RequestMapping("/init")
@@ -27,13 +40,19 @@ public class FormatterController extends CommonController {
 		
 		log.info("Mapping '/init'");
 		
-		return "formatter";
+		model.addAttribute(FormatterRequest.builder().build());
+		
+		return ApfTemplates.FORMATTER_TEMPLATE;
 	}
 	
-	@RequestMapping("/format")
-	public String format(Model model) {
+	@PostMapping("/format")
+	public String format(@ModelAttribute FormatterRequest formatterRequest, Model model) {
 		
 		log.info("Mapping '/format'");
+		
+		formatterControllerValidator.validateRequest(formatterRequest);
+		
+		FormatterServiceIDTO serviceIDTO = formatterControllerTransformer.toServiceIDTO(formatterRequest);
 		
 		List<String> results = Arrays.asList(
 				"Total: 12",
@@ -46,10 +65,10 @@ public class FormatterController extends CommonController {
 				"File DSCN78478 not found",
 				"File DSCN12783 not found");
 		
-		model.addAttribute("results", results);
-		model.addAttribute("errors", errors);
+		formatterRequest.setResults(results);
+		formatterRequest.setErrors(errors);
 		
-		return "formatter";
+		return ApfTemplates.FORMATTER_TEMPLATE;
 	}
 	
 }
