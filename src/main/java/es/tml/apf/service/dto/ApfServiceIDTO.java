@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class FormatterServiceIDTO {
+public class ApfServiceIDTO {
 
 	private ConversionType conversionType;
 

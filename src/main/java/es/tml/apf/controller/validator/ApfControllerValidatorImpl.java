@@ -8,12 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import es.tml.apf.controller.dto.FormatterRequest;
+import es.tml.apf.controller.dto.ApfRequest;
 import es.tml.apf.exception.ApfException;
 import es.tml.apf.util.ApfMessageResolver;
 
 @Component
-public class FormatterControllerValidatorImpl implements FormatterControllerValidator {
+public class ApfControllerValidatorImpl implements ApfControllerValidator {
 
 	private static final String MESSAGE_ERROR_NOT_EMPTY = "error.notEmpty";
 	private static final String MESSAGE_LABEL_CONVERSION_TYPE = "formatter.label.conversionType";
@@ -26,7 +26,7 @@ public class FormatterControllerValidatorImpl implements FormatterControllerVali
 	private ApfMessageResolver messageResolver;
 	
 	@Override
-	public void validateRequest(FormatterRequest request) {
+	public void validateRequest(ApfRequest request) {
 
 		List<String> errors = new ArrayList<>();
 		

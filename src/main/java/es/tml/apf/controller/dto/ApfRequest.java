@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class FormatterRequest {
+public class ApfRequest {
 
 	private ConversionType conversionType;
 	
