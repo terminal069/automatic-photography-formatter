@@ -7,11 +7,13 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import es.tml.apf.exception.ApfException;
 import es.tml.apf.service.dto.ApfServiceIDTO;
 import es.tml.apf.service.dto.ApfServiceODTO;
+import es.tml.apf.util.ApfMessageResolver;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,6 +23,9 @@ public class ApfServiceImpl implements ApfService {
 	
 	private static final Integer OK = 1;
 	private static final Integer KO = -1;
+	
+	@Autowired
+	private ApfMessageResolver messageResolver;
 
 	@Override
 	public ApfServiceODTO format(ApfServiceIDTO serviceIDTO) {
@@ -50,11 +55,14 @@ public class ApfServiceImpl implements ApfService {
 						break;
 					}
 					default: {
-						throw new ApfException("");
+						throw new ApfException(messageResolver.getMessage(
+						        "error.unknownConversionType",
+						        new Object[] { serviceIDTO.getConversionType().name() }));
 					}
 				}
 			}
 			catch(Exception e) {
+				log.error(e.getMessage());
 				
 			}
 		});
