@@ -5,6 +5,6 @@ spring:
   application:
     name: Automatic Photography Formatter
   messages:
-    basename: messages/messages, messages/error
+    basename: messages/messages, messages/error, messages/apfMessages
     cache-duration: -1
     encoding: UTF-8
