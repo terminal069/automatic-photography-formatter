@@ -24,9 +24,14 @@ public class ApfControllerTransformerImpl implements ApfControllerTransformer {
 	}
 
 	@Override
-	public ApfRequest toApfRequest(ApfServiceODTO odto) {
+	public ApfRequest toApfRequest(ApfServiceODTO odto, ApfRequest apfRequest) {
 
 		return ApfRequest.builder()
+		        .conversionType(apfRequest.getConversionType())
+		        .inputFolder(apfRequest.getInputFolder())
+		        .inputFormat(apfRequest.getInputFormat())
+		        .outputFolder(apfRequest.getOutputFolder())
+		        .outputFormat(apfRequest.getOutputFormat())
 				.results(odto.getResults())
 				.errors(odto.getErrors())
 				.build();

@@ -59,7 +59,7 @@ public class ApfController extends CommonController {
 		
 		ApfServiceODTO serviceODTO = service.format(serviceIDTO);
 		
-		model.addAttribute("apfRequest", transformer.toApfRequest(serviceODTO));
+		model.addAttribute("apfRequest", transformer.toApfRequest(serviceODTO, apfRequest));
 		
 		return ApfTemplates.FORMATTER_TEMPLATE;
 	}

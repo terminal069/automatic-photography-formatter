@@ -8,5 +8,5 @@ public interface ApfControllerTransformer {
 
 	ApfServiceIDTO toServiceIDTO(ApfRequest request);
 	
-	ApfRequest toApfRequest(ApfServiceODTO odto);
+	ApfRequest toApfRequest(ApfServiceODTO odto, ApfRequest apfRequest);
 }

@@ -1,8 +1,6 @@
 package es.tml.apf.service;
 
 import java.io.File;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +63,7 @@ public class ApfServiceImpl implements ApfService {
 						break;
 					}
 					default: {
-						throw new ApfException(messageResolver.getMessage(
+						throw new IllegalArgumentException(messageResolver.getMessage(
 						        "error.unknownConversionType",
 						        new Object[] { serviceIDTO.getConversionType().name() }));
 					}
@@ -84,9 +82,14 @@ public class ApfServiceImpl implements ApfService {
 				
 				results.add(Pair.of(OK, null));
 			}
+			catch(ApfException apf) {
+			    log.error(apf.getMessage());
+			    results.add(Pair.of(KO, apf.getMessage()));
+			}
 			catch(Exception e) {
-				log.error(e.getMessage());
-				results.add(Pair.of(KO, e.getMessage()));
+			    String message = "'".concat(fileName).concat("': ").concat(e.getMessage());
+				log.error(message);
+				results.add(Pair.of(KO, message));
 			}
 		});
 		
