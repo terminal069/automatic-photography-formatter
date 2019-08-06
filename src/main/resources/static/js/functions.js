@@ -1,9 +1,9 @@
 /**
  * After loading the page
  */
-$(document).ready(function() {
-	
-	checkIOFormat();
+$(document).ready(function()
+{
+	checkConversionType();
 	checkResults();
 	checkErrors();
 });
@@ -11,28 +11,27 @@ $(document).ready(function() {
 /**
  * Checks if conversion type is by EXIF label to set its output pattern automatically
  */
-function checkIOFormat() {
-	
-	if ($("#conversionTypeId").val() == "EXIF") {
+function checkConversionType()
+{
+	if ($("#conversionTypeId").val() == "EXIF")
+	{
 		$("#inputFormatId").val("yyyy:MM:dd HH:mm:ss");
-	}
-	
-	if ($("#outputFormatId").val() == "") {
-		$("#outputFormatId").val("yyyyMMdd_HHmmss'.jpg'")
 	}
 }
 
 /**
  * Checks if there are results to show
  */
-function checkResults() {
-	
-	if ($("#resultContainerId").height() > 300) {
+function checkResults()
+{
+	if ($("#resultContainerId").height() > 300)
+	{
 		$("#resultId").height(300);
 		$("#resultId").css('overflow','auto')
 	}
 	
-	if ($("#resultId").html().trim() != "") {
+	if ($("#resultId").html().trim() != "")
+	{
 		$("#resultContainerId").fadeIn();
 	}
 }
@@ -40,14 +39,16 @@ function checkResults() {
 /**
  * Checks if there are errors to show
  */
-function checkErrors() {
-	
-	if ($("#errorContainerId").height() > 300) {
+function checkErrors()
+{
+	if ($("#errorContainerId").height() > 300)
+	{
 		$("#errorId").height(300);
 		$("#errorId").css('overflow','auto')
 	}
 	
-	if ($("#errorId").html().trim() != "") {
+	if ($("#errorId").html().trim() != "")
+	{
 		$("#errorContainerId").fadeIn();
 	}
 }
@@ -57,8 +58,8 @@ function checkErrors() {
  *  
  * @param formatId Id of the format pattern
  */
-function showFormatterHelp(formatId) {
-	
+function showFormatterHelp(formatId)
+{
 	$("#formatterHelpId").val(formatId);
 	$("#formatterHelpContainerId").fadeIn();
 }
@@ -66,8 +67,8 @@ function showFormatterHelp(formatId) {
 /**
  * Hides pattern format help popup
  */
-function hideFormatterHelp() {
-	
+function hideFormatterHelp()
+{
 	$("#formatterHelpContainerId").fadeOut();
 	$("#formatterHelpId").val("");
 	$("#patternLoaderSelectId").val("0");
@@ -83,8 +84,8 @@ function hideFormatterHelp() {
  * @param bodyId Body id
  * @param textId Text id
  */
-function showTableBody(headerId, bodyId, textId) {
-	
+function showTableBody(headerId, bodyId, textId)
+{
 	$("#" + bodyId).fadeIn();
 	$("#" + textId + "AId").html("&#9650;");
 	$("#" + textId + "BId").html("&#9650;");
@@ -100,8 +101,8 @@ function showTableBody(headerId, bodyId, textId) {
  * @param bodyId Body id
  * @param textId Text id
  */
-function hideTableBody(headerId, bodyId, textId) {
-	
+function hideTableBody(headerId, bodyId, textId)
+{
 	$("#" + bodyId).fadeOut();
 	$("#" + textId + "AId").html("&#9660;");
 	$("#" + textId + "BId").html("&#9660;");
@@ -115,29 +116,36 @@ function hideTableBody(headerId, bodyId, textId) {
  *  
  * @param patternType Pattern type
  */
-function loadPatternPopup(patternType) {
-	
+function loadPatternPopup(patternType)
+{
 	var pattern;
 	
-	if (patternType == "EXIF") {
+	if (patternType == "EXIF")
+	{
 		pattern = "yyyy:MM:dd HH:mm:ss";
 	}
-	else if (patternType == "AND_EST") {
+	else if (patternType == "AND_EST")
+	{
 		pattern = "'IMG'_yyyyMMdd_HHmmss'.jpg'";
 	}
-	else if (patternType == "AND_MILI") {
+	else if (patternType == "AND_MILI")
+	{
 		pattern = "'IMG'_yyyyMMdd_HHmmssSSS'.jpg'";
 	}
-	else if (patternType == "IPHONE_ESP") {
+	else if (patternType == "IPHONE_ESP")
+	{
 		pattern = "'Foto' dd-M-yy HH mm ss'.jpg'";
 	}
-	else if (patternType == "IPHONE_PUN") {
+	else if (patternType == "IPHONE_PUN")
+	{
 		pattern = "yyyy-MM-dd HH.mm.ss'.jpg'";
 	}
-	else if (patternType == "SALIDA_EST") {
+	else if (patternType == "SALIDA_EST")
+	{
 		pattern = "yyyyMMdd_HHmmss'.jpg'";
 	}
-	else {
+	else
+	{
 		pattern = "";
 	}
 	
@@ -147,8 +155,8 @@ function loadPatternPopup(patternType) {
 /**
  * Loads the pattern into the selected pattern format 
  */
-function loadPattern() {
-	
+function loadPattern()
+{
 	$("#" + $("#formatterHelpId").val()).val($("#selectedPatternId").val());
 	hideFormatterHelp();
 }
