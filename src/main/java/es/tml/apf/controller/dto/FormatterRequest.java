@@ -2,6 +2,7 @@ package es.tml.apf.controller.dto;
 
 import java.util.List;
 
+import es.tml.apf.util.type.ConversionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

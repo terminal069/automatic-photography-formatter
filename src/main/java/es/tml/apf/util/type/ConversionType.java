@@ -1,4 +1,4 @@
-package es.tml.apf.controller.dto;
+package es.tml.apf.util.type;
 
 import java.util.Arrays;
 import java.util.HashMap;
