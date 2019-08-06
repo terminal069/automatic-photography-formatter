@@ -1,5 +1,6 @@
 package es.tml.apf.exception;
 
+import java.util.Collections;
 import java.util.List;
 
 import lombok.Data;
@@ -17,5 +18,11 @@ public class ApfException extends RuntimeException {
 		
 		super();
 		this.errors = errors;
+	}
+	
+	public ApfException(String message) {
+		
+		super(message);
+		this.errors = Collections.emptyList();
 	}
 }
